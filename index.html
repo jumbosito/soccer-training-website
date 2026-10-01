@@ -2,20 +2,116 @@
 <html>
 <head>
     <title>Soccer Training Planner</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            background-color: #f2f5f7;
+        }
+
+        header {
+            background-color: #1f2937;
+            color: white;
+            padding: 30px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        .intro {
+            padding: 30px;
+        }
+
+        .weaknesses {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: white;
+        }
+
+        button:hover {
+            background-color: #dbeafe;
+        }
+
+        #trainingPlan {
+            margin: 30px auto;
+            padding: 25px;
+            max-width: 600px;
+            background-color: white;
+            border-radius: 10px;
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Soccer Training Planner</h1>
+    <header>
+        <h1>⚽ Soccer Training Planner</h1>
+        <p>Train smarter. Improve your weaknesses.</p>
+    </header>
 
-    <p>Improve your soccer skills with a training plan based on your weaknesses.</p>
+    <div class="intro">
+        <h2>What do you want to improve?</h2>
+        <p>Choose one of your soccer weaknesses below.</p>
+    </div>
 
-    <h2>What do you want to improve?</h2>
+    <div class="weaknesses">
+        <button onclick="showPlan('Dribbling')">Dribbling</button>
+        <button onclick="showPlan('Passing')">Passing</button>
+        <button onclick="showPlan('Shooting')">Shooting</button>
+        <button onclick="showPlan('Speed')">Speed</button>
+        <button onclick="showPlan('Defending')">Defending</button>
+    </div>
 
-    <button>Dribbling</button>
-    <button>Passing</button>
-    <button>Shooting</button>
-    <button>Speed</button>
-    <button>Defending</button>
+    <div id="trainingPlan">
+        <h2>Your Training Plan</h2>
+        <p>Choose a weakness above to get started.</p>
+    </div>
+
+    <script>
+        function showPlan(skill) {
+
+            let plan = "";
+
+            if (skill === "Dribbling") {
+                plan = "10 minutes of close-control dribbling, followed by cone dribbling and 1v1 moves.";
+            }
+
+            if (skill === "Passing") {
+                plan = "10 minutes of short passing, followed by wall passes and first-touch exercises.";
+            }
+
+            if (skill === "Shooting") {
+                plan = "10 minutes of finishing from different angles, followed by shooting with both feet.";
+            }
+
+            if (skill === "Speed") {
+                plan = "Dynamic warm-up followed by short sprints, acceleration drills and change-of-direction exercises.";
+            }
+
+            if (skill === "Defending") {
+                plan = "Practice defensive positioning, lateral movement, tackling technique and 1v1 defending.";
+            }
+
+            document.getElementById("trainingPlan").innerHTML =
+                "<h2>" + skill + " Training Plan</h2>" +
+                "<p>" + plan + "</p>";
+        }
+    </script>
 
 </body>
-</html>  
+</html>
